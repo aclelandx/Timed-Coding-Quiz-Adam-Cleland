@@ -1,0 +1,395 @@
+/* creating variables for common stylings that will be used throughout the css document */
+:root {
+    --primaryColor:#202121;
+    --secondaryColor:#C5C5C4;
+    --tertiaryColor:#FFFFFF;
+    --quaternaryColor:#F9FAFB;
+    --headerStyleLight:300 19pt/26pt 'Open Sans Condensed', sans-serif;
+    --headerStyleBold:700 19pt/26pt 'Open Sans Condensed', sans-serif;
+    --bodyCopyStyle:400 13pt/19pt 'Lato', sans-serif;
+    --navSelectorStyle:400 12pt/13pt 'Lato', sans-serif;
+    --largeSectionSpacing:calc(100% - 100px);
+    --transparentPrimaryColor:rgb(32, 33, 33, .4);
+    --transparentSecondaryColor:rgb(197, 197, 196, .8);
+    --transparentTertiaryColor:rgb(255, 255, 255, .8);
+    --transparentQuaternaryColor:rgb(249, 250, 251, .7);
+    --projectTitle:900 12pt/14pt 'Lato', sans-serif;
+    --projectType:300 14.5pt/14pt 'Lato', sans-serif;
+    --flexBackgroundImage: no-repeat center/cover var(--primaryColor);
+    --transitionSettings: 150ms linear;
+    --innerSectionSpacing:calc(80vh * .075);
+}
+
+@keyframes slightMovement {
+    0% {
+        backdrop-filter: hue-rotate(0deg);
+        backdrop-filter: blur(0%);
+    }
+
+    50% {
+        backdrop-filter: blur(100%);
+    }
+
+    100% {
+        backdrop-filter: hue-rotate(360deg);
+        backdrop-filter: blur(0%);
+    }
+}
+
+/* resetting the default padding and margins that web browsers have inherently  */
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+/* setting the background image to the gradient mesh svg  */
+
+body {
+    background-image: url(../images/backgroung-gradient.smsvg.svg);
+    backdrop-filter:hue-rotate(0);
+    background-size:cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    animation-name: slightMovement;
+    animation-play-state:running;
+    animation-iteration-count: infinite;
+    animation-duration:300s;
+}
+
+/* Stylization for the closed side navigation begins. */
+
+#side-nav-container.nav-closed {
+    width:75px;
+    height:100vh;
+    display: flex;
+    justify-content:space-between;
+    gap: 10px;
+    flex-flow: column nowrap;
+    align-content: center;
+    position:fixed;
+    background-color: var(--transparentQuaternaryColor);
+}
+
+#side-nav-container.nav-closed > header {
+    width:100%;
+    padding-top:20px;
+}
+
+#side-nav-container.nav-closed > header > img {
+    width:35px;
+    margin-left:20px;
+    filter: drop-shadow(4px 4px 1px var(--secondaryColor));
+}
+
+#side-nav-container.nav-closed > header > img:focus {
+    width:0px;
+}
+
+#side-nav-container.nav-closed > header > h1,
+#side-nav-container.nav-closed > header > h2 {
+    display: none;
+}
+
+#side-nav-container.nav-closed > nav {
+    width: 100%;
+    overflow: hidden;
+}
+
+#side-nav-container.nav-closed > nav > ul > li > a {
+    color:var(--primaryColor);
+}
+
+#side-nav-container.nav-closed > nav > ul > li > a > span {
+    display: none;
+}
+
+#side-nav-container.nav-closed > nav > ul > li > a > img {
+    width:55px;
+    padding:10px 10px 10px 10px;
+    transition: var(--transitionSettings);
+}
+
+#side-nav-container.nav-closed > nav > ul > li > a > img:hover {
+    transition: var(--transitionSettings);
+    background-color: var(--transparentQuaternaryColor);
+    filter:invert(1);
+}
+
+#side-nav-container.nav-closed > footer {
+    display: block;
+}
+
+#side-nav-container.nav-closed > footer > hr {
+    display: block;
+    border:none;
+    height:1px;
+    background-color:var(--secondaryColor);
+}
+
+#side-nav-container.nav-closed > footer > img {
+    display: block;
+    width:35px;
+    padding: 20px;
+    transition: var(--transitionSettings);
+}
+
+#side-nav-container.nav-closed > footer > img:hover {
+    transition: var(--transitionSettings);
+    background-color:var(--transparentQuaternaryColor);
+    filter:invert(1);
+}
+
+#side-nav-container.nav-closed > footer > p {
+    display: none;
+}
+
+main.nav-closed {
+    width:calc(100% - 75px);
+    margin-left: 75px;
+}
+
+
+/* stylization for the closed side navigation ends. */
+
+/* Stylization for the open side navigation begins */
+
+#side-nav-container.nav-open {
+    width:300px;
+    background-color:var(--transparentQuaternaryColor);
+    height:100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: column nowrap;
+    position: fixed;
+    overflow: hidden;
+}
+
+#side-nav-container.nav-open > header {
+    flex: 0 1 35%;
+    width:100%;
+    height:35vh;
+    padding:50px 0px 0px 0px;
+}
+
+#side-nav-container.nav-open > header > img {
+    width: 75px;
+    height: auto;
+    display: block;
+    margin: 0px auto;
+    padding-bottom:15px;
+}
+
+#side-nav-container.nav-open > header > h1,
+#side-nav-container.nav-open > header > h2 {
+    color: var(--primaryColor);
+    width:100%;
+    height:25px;
+    font-size: 25px;
+    text-transform: uppercase;
+    text-align: center;
+    font:var(--headerStyleBold);
+    padding:0px 0px 15px;
+}
+
+
+#side-nav-container.nav-open > nav {
+    flex: 0 0 40%;
+    width:100%;
+    height:100%;
+    padding:0px 0px;
+}
+
+#side-nav-container.nav-open > nav > ul {
+    width:100%;
+    text-decoration: none;
+    height:100%;
+    list-style-type: none;
+    color: var(--primaryColor);
+    font-family: monospace;
+    text-transform: uppercase;
+    font-weight:500;
+    font:var(--navSelectorStyle);
+    padding:0px 0px;
+}
+
+#side-nav-container.nav-open > nav > ul > li {
+    list-style-type: none;
+    display: block;
+    width:100%;
+    float: left;
+    text-align: center;
+    padding:0px 0px;
+    transition: var(--transitionSettings);
+    cursor: pointer;
+    letter-spacing: .2em;
+}
+
+#side-nav-container.nav-open > nav > ul > li > a {
+    color: var(--primaryColor);
+    text-decoration: none;
+    padding: 20px 0px;
+    width:100%;
+    display: block;
+}
+
+#side-nav-container.nav-open > nav > ul > li > a:hover {
+    color:var(--quaternaryColor);
+}
+
+#side-nav-container.nav-open > nav > ul > li > a > img {
+    display: none;
+}
+
+#side-nav-container.nav-open > nav > ul > li:hover {
+    background-color: var(--transparentPrimaryColor);
+    color: var(--quaternaryColor);
+    transition:var(--transitionSettings);
+}
+
+#side-nav-container.nav-open > footer {
+    flex: 0 0 0px;
+    height:100%;
+    width:100%;
+    text-align: center;
+    padding-bottom: 25px;
+
+}
+
+#side-nav-container.nav-open > footer > hr {
+    width:90%;
+    border:solid 1px var(--quaternaryColor);
+    margin: 0px 5% 25px 5%; 
+}
+
+#side-nav-container.nav-open > footer > img {
+    width:35px;
+}
+
+#side-nav-container.nav-open > footer > p {
+    font:var(--navSelectorStyle)
+}
+
+/* Stylization for the open side navigation bar ends  */
+
+
+
+/* Stylization for the main section of content begins  */
+
+main {
+    width:calc(100% - 300px);
+    height:100vh;
+    margin-left:300px;
+    display:flex;
+    justify-content: center;
+    flex-flow: row nowrap;
+    overflow: hidden;
+}
+
+main > #display {
+    width:80%;
+    height:80vh;
+    margin:10vh auto;
+    border-radius: 5px;
+}
+
+/* Stylization of the home screen begins  */
+
+main > #display.home {
+    /* border:inset 2px var(--quaternaryColor); */
+    /* border-radius: 5px 5px 0px 0px; */
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content:space-between;
+}
+
+main > #display.home > header {
+    width:100%;
+    padding-bottom:0px;
+}
+
+main > #display.home > header > img {
+    width:85%;
+    padding:0px 7.5%;
+    display: block;
+    /* background-color: var(--transparentQuaternaryColor); */
+    filter: drop-shadow(8px 8px 2px var(--transparentPrimaryColor));
+    border-radius: 15px 15px 0px 0px;
+}
+
+main > #display.home > .home-screen-button {
+    border-radius: 1em;
+    font-family: "open sans condensed", sans-serif;
+    font-weight: 700;
+    font-size: 3vh;
+    text-transform: uppercase;
+    padding-top:2vh;
+    padding-bottom:2vh;
+    margin:0px auto;
+    padding:2vh 30px;
+}
+
+/* Stylization for the home screen ends  */
+
+
+/* stylization of the quiz screen begins. */
+
+main > #display.quiz {
+    background-color: var(--transparentQuaternaryColor);
+}
+
+main > #display.quiz > textarea {
+    width:calc(85% - 50px);
+    margin:var(--innerSectionSpacing) 7.5% 0px 7.5%;
+    appearance: none;
+    resize: none;
+    height:calc(35% - 50px);
+    font:400 14pt/22pt "Lato";
+    text-align: center;
+    padding:25px;
+    background-color:rgb(0, 0, 0, .1);
+    border:none;
+    color:var(--primaryColor);
+}
+
+main > #display.quiz > hr {
+    height:calc(80vh * .005);
+    border:none;
+    background-color: var(--quaternaryColor);
+    border-radius: 50%;
+    width:80%;
+    margin:calc(80vh * .0725) 10%;
+}
+
+main > #display.quiz > #answer-choices {
+    display: flex;
+    width:85%;
+    margin:0px 7.5% var(--innerSectionSpacing) 7.5%;
+    height:35%;
+    justify-content:stretch;
+    flex-flow: row wrap;
+    gap:12.5px
+}
+
+main > #display.quiz > #answer-choices button {
+    flex: 1 1 calc(50% - (12.5px / 2));
+    text-align: center;
+    background-color: rgb(0, 0, 0, 0);
+    font:var(--headerStyleBold);
+    border-radius: 2.5px;
+}
+
+main > #display.quiz > #answer-choices button#submit {
+    margin-left: 25%;
+    margin-right:25%;
+}
+
+main > #display.quiz > #answer-choices button.selected {
+    background-color: var(--primaryColor);
+    color:var(--quaternaryColor);
+    box-shadow: inset 0px 0px 3px var(--quaternaryColor);
+}
+
+/* stylization of the quiz screen ends. */
+
