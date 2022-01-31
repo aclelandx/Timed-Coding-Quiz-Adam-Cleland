@@ -301,11 +301,10 @@ main > #display {
 /* Stylization of the home screen begins  */
 
 main > #display.home {
-    /* border:inset 2px var(--quaternaryColor); */
-    /* border-radius: 5px 5px 0px 0px; */
     display: flex;
     flex-flow: column nowrap;
     justify-content:space-between;
+    align-items: center;
 }
 
 main > #display.home > header {
@@ -322,7 +321,7 @@ main > #display.home > header > img {
     border-radius: 15px 15px 0px 0px;
 }
 
-main > #display.home > .home-screen-button {
+main > #display.home > a > .home-screen-button {
     border-radius: 1em;
     font-family: "open sans condensed", sans-serif;
     font-weight: 700;
@@ -332,6 +331,18 @@ main > #display.home > .home-screen-button {
     padding-bottom:2vh;
     margin:0px auto;
     padding:2vh 30px;
+    cursor: pointer;
+    background-color: var(--transparentQuaternaryColor);
+    transition:var(--transitionSettings);
+    border:4px solid var(--primaryColor);
+    box-shadow: inset 0px 0px 15px 5px var(--tertiaryColor);
+}
+
+main > #display.home > a > .home-screen-button:hover {
+    background-color: var(--primaryColor);
+    color:var(--quaternaryColor);
+    border:4px solid var(--quaternaryColor);
+    box-shadow: inset 0px 0px 15px 5px black;
 }
 
 /* Stylization for the home screen ends  */

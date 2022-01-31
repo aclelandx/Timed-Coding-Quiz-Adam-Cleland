@@ -65,14 +65,22 @@
     <!-- Side navigation bar ends. -->
 
     <!-- Main content section begins. -->
-    <main class="nav-closed" data-slider="Screen Width Adjuster">
-        <section id="display" class="home">
-            <header>
-                <img src="./Assets/images/Code-quiz-logo.svg" alt="black logo of a Stopwatch with the letter Q in it along with the text of `Adam Cleland Timed Code Quiz`">
-            </header>
-            <a href="./quiz.html"><button id="quiz-button" class="home-screen-button">Begin The Quiz</button></a>
-            <a href="./highscores.html"><button id="highscores-button" class="home-screen-button">View High-Scores</button></a>
-            <a href="https://aclelandx.github.io/Personal-Portfolio-Website-Adam-Cleland/"><button id="portfolio-button" class="home-screen-button">View My Portfolio</button></a>
+    <main class="nav-closed" data-slider="small">
+        <section id="display" class="quiz">
+            <textarea readonly id="displayed-question" aria-label="Displayed Question" placeholder="Question being asked"></textarea>
+            <hr>
+            <article id="answer-choices">
+
+                <button id="selection-1" class="multiple-choice">answer</button>
+                <button id="selection-2" class="multiple-choice">answer</button>
+                <button id="selection-3" class="multiple-choice">answer</button>
+                <button id="selection-4" class="multiple-choice">answer</button>
+
+                <button id="selection-true" class="true-false">answer</button>
+                <button id="selection-false" class="true-false">answer</button>
+
+                <button id="submit">Submit</button>
+            </article>
         </section>
     </main>
     <!-- Main content section ends. -->
