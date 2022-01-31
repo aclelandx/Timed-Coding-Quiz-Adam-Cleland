@@ -69,6 +69,7 @@ body {
     align-content: center;
     position:fixed;
     background-color: var(--transparentQuaternaryColor);
+    transition: var(--transitionSettings);
 }
 
 #side-nav-container.nav-closed > header {
@@ -80,10 +81,7 @@ body {
     width:35px;
     margin-left:20px;
     filter: drop-shadow(4px 4px 1px var(--secondaryColor));
-}
-
-#side-nav-container.nav-closed > header > img:focus {
-    width:0px;
+    cursor: pointer;
 }
 
 #side-nav-container.nav-closed > header > h1,
@@ -164,6 +162,7 @@ main.nav-closed {
     flex-flow: column nowrap;
     position: fixed;
     overflow: hidden;
+    transition: var(--transitionSettings);
 }
 
 #side-nav-container.nav-open > header {
@@ -271,6 +270,11 @@ main.nav-closed {
     font:var(--navSelectorStyle)
 }
 
+main.nav-open {
+    width:calc(100% - 300px);
+    transition: var(--transitionSettings);
+}
+
 /* Stylization for the open side navigation bar ends  */
 
 
@@ -278,13 +282,13 @@ main.nav-closed {
 /* Stylization for the main section of content begins  */
 
 main {
-    width:calc(100% - 300px);
     height:100vh;
     margin-left:300px;
     display:flex;
     justify-content: center;
     flex-flow: row nowrap;
     overflow: hidden;
+    transition: var(--transitionSettings);
 }
 
 main > #display {

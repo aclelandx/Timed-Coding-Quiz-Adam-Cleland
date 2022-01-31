@@ -1,11 +1,14 @@
 let navSwapButton = document.getElementById(`navSwapIcon`);
-let classesWithClosed = document.querySelectorAll(`.nav-closed`);
-let classedWithOpen = document.querySelectorAll(`.nav-open`);
+const navSwapElements = document.querySelectorAll(`[data-slider]`);
 
-for (let slider = 0; slider < array.length; index++) {
-    const element = array[index];
-    
+function navigationSwap () {
+    for (var i = 0; i < navSwapElements.length; i++) {
+        navSwapElements[i].classList.toggle(`nav-open`);
+        navSwapElements[i].classList.toggle(`nav-closed`);
+    };
+    return;
 };
+
 
 
 navSwapButton.addEventListener(`click`, navigationSwap);
