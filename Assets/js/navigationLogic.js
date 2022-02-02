@@ -1,4 +1,5 @@
 let navSwapButton = document.getElementById(`navSwapIcon`);
+
 const navSwapElements = document.querySelectorAll(`[data-slider]`);
 
 function navigationSwap () {
@@ -8,7 +9,5 @@ function navigationSwap () {
     };
     return;
 };
-
-
 
 navSwapButton.addEventListener(`click`, navigationSwap);

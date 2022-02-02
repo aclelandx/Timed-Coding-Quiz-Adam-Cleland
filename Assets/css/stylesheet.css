@@ -6,7 +6,7 @@
     --quaternaryColor:#F9FAFB;
     --headerStyleLight:300 19pt/26pt 'Open Sans Condensed', sans-serif;
     --headerStyleBold:700 19pt/26pt 'Open Sans Condensed', sans-serif;
-    --bodyCopyStyle:400 13pt/19pt 'Lato', sans-serif;
+    --bodyCopyStyle:400 13pt/16pt 'Lato', sans-serif;
     --navSelectorStyle:400 12pt/13pt 'Lato', sans-serif;
     --largeSectionSpacing:calc(100% - 100px);
     --transparentPrimaryColor:rgb(32, 33, 33, .4);
@@ -352,43 +352,48 @@ main > #display.home > a > .home-screen-button:hover {
 
 main > #display.quiz {
     background-color: var(--transparentQuaternaryColor);
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
 }
 
 main > #display.quiz > textarea {
-    width:calc(85% - 50px);
-    margin:var(--innerSectionSpacing) 7.5% 0px 7.5%;
     appearance: none;
     resize: none;
-    height:calc(35% - 50px);
+    width:80%;
+    height:35%;
+    margin:5% 5% 0px 5%;
     font:400 14pt/22pt "Lato";
     text-align: center;
-    padding:25px;
+    padding:5%;
     background-color:rgb(0, 0, 0, .1);
     border:none;
     color:var(--primaryColor);
 }
 
-main > #display.quiz > hr {
-    height:calc(80vh * .005);
-    border:none;
-    background-color: var(--quaternaryColor);
-    border-radius: 50%;
-    width:80%;
-    margin:calc(80vh * .0725) 10%;
+main > #display.quiz > p {
+    width:100%;
+    padding: 1% 0px;
+    background-color: var(--primaryColor);
+    color: var(--quaternaryColor);
+    font: var(--bodyCopyStyle);
+    text-align: center;
+    margin:2.5% 0px;
 }
 
 main > #display.quiz > #answer-choices {
     display: flex;
-    width:85%;
-    margin:0px 7.5% var(--innerSectionSpacing) 7.5%;
-    height:35%;
-    justify-content:stretch;
+    width:90%;
+    margin-bottom:5%;
+    height:calc(35% - 10px);
+    justify-content:space-evenly;
     flex-flow: row wrap;
-    gap:12.5px
+    gap:5px 5px;
 }
 
 main > #display.quiz > #answer-choices button {
-    flex: 1 1 calc(50% - (12.5px / 2));
+    flex: 0 0 49%;
     text-align: center;
     background-color: rgb(0, 0, 0, 0);
     font:var(--headerStyleBold);
@@ -404,6 +409,87 @@ main > #display.quiz > #answer-choices button.selected {
     background-color: var(--primaryColor);
     color:var(--quaternaryColor);
     box-shadow: inset 0px 0px 3px var(--quaternaryColor);
+}
+
+#answer-choices.true-false > [data-variant="multiple-choice"] {
+    display: none;
+}
+
+#answer-choices.multiple-choice > [data-variant="true-false"] {
+    display: none;
+}
+
+#popup {
+    position: fixed;
+    display: flex;
+    margin-top: 10vh;
+    height:75vh;
+    background-color: var(--primaryColor);
+    flex-flow:column nowrap;
+    border-radius: 10px;
+    justify-content: space-evenly;
+    padding: 2.5vh 2.5%;
+    align-items:center;
+    color: var(--quaternaryColor);
+}
+
+#popup p {
+    display: block;
+    width:100%;
+    font: var(--bodyCopyStyle);
+    text-align: center;
+}
+
+#popup h6 {
+    font: var(--headerStyleBold);
+    color: var(--quaternaryColor);
+    width:90%;
+    padding:0px 5%;
+    text-align: center;
+}
+
+#popup button {
+    padding:15px 30px;
+    font:var(--headerStyleBold);
+    border-radius: 15px;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--quaternaryColor);
+    background-color: var(--primaryColor);
+    border: var(--quaternaryColor) 2px solid;
+    transition: var(--transitionSettings);
+}
+
+#popup input {
+    padding:15px 30px;
+    font: var(--bodyCopyStyle);
+    color: var(--quaternaryColor);
+    background-color: var(--primaryColor);
+    text-transform: uppercase;
+    border: var(--quaternaryColor) 2px solid;
+    text-align: center;
+}
+
+#popup button:hover {
+    color: var(--primaryColor);
+    background-color: var(--quaternaryColor);
+    transition: var(--transitionSettings);
+}
+
+#popup.nav-closed {
+    display: none;
+}
+
+#popup.nav-closed.shown {
+    display: flex;
+    width:calc(77% - 75px);
+    margin-left: calc(9% + 75px);
+    transition: var(--transitionSettings);
+}
+
+#popup.nav-open.shown {
+    width:calc(85% - 300px);
+    margin-left:calc(5% + 300px);
 }
 
 /* stylization of the quiz screen ends. */

@@ -64,20 +64,40 @@
     </section>
     <!-- Side navigation bar ends. -->
 
+    <!-- popup used to display information when it is relevant to what is going on.  -->
+    <div id="popup" class="shown nav-closed" data-slider="popup window">
+        <h6>Adam's Coding Quiz</h6>
+        <p>
+            The quiz that I have developed will ask you various questions mostly pertaining to web development. 
+            <br> 
+            The time that is alloted for the quiz is 120 Seconds (Two Minutes). For each question that you get correct 10 points will be added to your total score; incorrect inputs will take away 10 seconds from your remaining time.
+            <br>
+            After the quiz you will be able to save your score to the leader-boards!
+        </p>
+        <h6>Click Below to begin the quiz</h6>
+        <button id="popup-button">Start!</button>
+    </div>
+
     <!-- Main content section begins. -->
-    <main class="nav-closed" data-slider="small">
+    <main class="nav-closed" data-slider="main content">
         <section id="display" class="quiz">
-            <textarea readonly id="displayed-question" aria-label="Displayed Question" placeholder="Question being asked"></textarea>
-            <hr>
-            <article id="answer-choices">
+            <textarea readonly id="displayed-question" aria-label="Displayed Question" placeholder="Question being asked">Would you like to begin the Timed Quiz?</textarea>
+            <p>
+                <span data-tracker="time-label">Time-Remaining: </span>
+                <span data-tracker="time-value">XX</span>
+                <span data-tracker="score-label">Score: </span>
+                <span data-tracker="score-value">XX</span>
+            </p>
+            <!-- <hr> -->
+            <article id="answer-choices" class="true-false">
 
-                <button id="selection-1" class="multiple-choice">answer</button>
-                <button id="selection-2" class="multiple-choice">answer</button>
-                <button id="selection-3" class="multiple-choice">answer</button>
-                <button id="selection-4" class="multiple-choice">answer</button>
+                <button id="selection-1" data-variant="multiple-choice" data-key="true">button1</button>
+                <button id="selection-2" data-variant="multiple-choice" data-key="true">answer</button>
+                <button id="selection-3" data-variant="multiple-choice" data-key="true">answer</button>
+                <button id="selection-4" data-variant="multiple-choice" data-key="true">answer</button>
 
-                <button id="selection-true" class="true-false">answer</button>
-                <button id="selection-false" class="true-false">answer</button>
+                <button id="selection-true" data-variant="true-false" data-key="true">TRUE</button>
+                <button id="selection-false" data-variant="true-false" data-key="false">FALSE</button>
 
                 <button id="submit">Submit</button>
             </article>
