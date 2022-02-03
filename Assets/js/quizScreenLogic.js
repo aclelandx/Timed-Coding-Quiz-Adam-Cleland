@@ -47,20 +47,18 @@ function endExam() {
     <input type="text" id="player-name" placeholder="Your Name">
     <button id="save-info-button">Submit!</button>`;
     let saveInfoButton = document.getElementById(`save-info-button`);
-    let playerName = document.getElementById(`player-name`);
-    let newScore = {score: scoreTracker, newUser: playerName};
     console.log(saveInfoButton);
     saveInfoButton.addEventListener(`click`, function(){
-        let leaderBoard = localStorage.getItem(`highScores`)
-
+        let leaderBoard = JSON.parse(localStorage.getItem(`highScores`));
+        let playerName = document.getElementById(`player-name`).value;
+        let newScore = {score: scoreTracker, newUser: playerName};
         if(leaderBoard == null) {
             leaderBoard = [];
         } 
         leaderBoard.push(newScore);
         leaderBoard.sort((x, y) => (x.score > y.score));
-        localStorage.setItem(`highScores`, leaderBoard);
-        console.log(newScore);
-        console.log(leaderBoard);
+        let leaderBoardString = JSON.stringify(leaderBoard);
+        localStorage.setItem(`highScores`, leaderBoardString);
     });
 }
 
