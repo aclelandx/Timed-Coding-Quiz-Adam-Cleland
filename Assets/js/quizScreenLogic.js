@@ -45,7 +45,7 @@ function endExam() {
     Please provide your name below to save your score to the records!
     </p>
     <input type="text" id="player-name" placeholder="Your Name">
-    <button id="save-info-button">Submit!</button>`;
+    <a href="highscores.html"><button id="save-info-button">Submit!</button></a>`;
     let saveInfoButton = document.getElementById(`save-info-button`);
     console.log(saveInfoButton);
     saveInfoButton.addEventListener(`click`, function(){
@@ -56,7 +56,6 @@ function endExam() {
             leaderBoard = [];
         } 
         leaderBoard.push(newScore);
-        leaderBoard.sort((x, y) => (x.score > y.score));
         let leaderBoardString = JSON.stringify(leaderBoard);
         localStorage.setItem(`highScores`, leaderBoardString);
     });
@@ -187,7 +186,7 @@ function timerForQuiz() {
         clearInterval(countdown);
         endExam()
         return;
-    }}, 10);
+    }}, 1000);
 };
 
 $popupButton.addEventListener(`click`, function () {

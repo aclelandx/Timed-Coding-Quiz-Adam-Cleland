@@ -1,496 +1,520 @@
 /* creating variables for common stylings that will be used throughout the css document */
 :root {
-    --primaryColor:#202121;
-    --secondaryColor:#C5C5C4;
-    --tertiaryColor:#FFFFFF;
-    --quaternaryColor:#F9FAFB;
-    --headerStyleLight:300 19pt/26pt 'Open Sans Condensed', sans-serif;
-    --headerStyleBold:700 19pt/26pt 'Open Sans Condensed', sans-serif;
-    --bodyCopyStyle:400 13pt/16pt 'Lato', sans-serif;
-    --navSelectorStyle:400 12pt/13pt 'Lato', sans-serif;
-    --largeSectionSpacing:calc(100% - 100px);
-    --transparentPrimaryColor:rgb(32, 33, 33, .4);
-    --transparentSecondaryColor:rgb(197, 197, 196, .8);
-    --transparentTertiaryColor:rgb(255, 255, 255, .8);
-    --transparentQuaternaryColor:rgb(249, 250, 251, .7);
-    --projectTitle:900 12pt/14pt 'Lato', sans-serif;
-    --projectType:300 14.5pt/14pt 'Lato', sans-serif;
-    --flexBackgroundImage: no-repeat center/cover var(--primaryColor);
-    --transitionSettings: 150ms linear;
-    --innerSectionSpacing:calc(80vh * .075);
+  --primaryColor: #202121;
+  --secondaryColor: #c5c5c4;
+  --tertiaryColor: #ffffff;
+  --quaternaryColor: #f9fafb;
+  --headerStyleLight: 300 19pt/26pt "Open Sans Condensed", sans-serif;
+  --headerStyleBold: 700 19pt/26pt "Open Sans Condensed", sans-serif;
+  --bodyCopyStyle: 400 13pt/16pt "Lato", sans-serif;
+  --navSelectorStyle: 400 12pt/13pt "Lato", sans-serif;
+  --largeSectionSpacing: calc(100% - 100px);
+  --transparentPrimaryColor: rgb(32, 33, 33, 0.4);
+  --transparentSecondaryColor: rgb(197, 197, 196, 0.8);
+  --transparentTertiaryColor: rgb(255, 255, 255, 0.8);
+  --transparentQuaternaryColor: rgb(249, 250, 251, 0.7);
+  --projectTitle: 900 12pt/14pt "Lato", sans-serif;
+  --projectType: 300 14.5pt/14pt "Lato", sans-serif;
+  --flexBackgroundImage: no-repeat center/cover var(--primaryColor);
+  --transitionSettings: 150ms linear;
+  --innerSectionSpacing: calc(80vh * 0.075);
 }
 
 @keyframes slightMovement {
-    0% {
-        backdrop-filter: hue-rotate(0deg);
-        backdrop-filter: blur(0%);
-    }
+  0% {
+    backdrop-filter: hue-rotate(0deg);
+    backdrop-filter: blur(0%);
+  }
 
-    50% {
-        backdrop-filter: blur(100%);
-    }
+  50% {
+    backdrop-filter: blur(100%);
+  }
 
-    100% {
-        backdrop-filter: hue-rotate(360deg);
-        backdrop-filter: blur(0%);
-    }
+  100% {
+    backdrop-filter: hue-rotate(360deg);
+    backdrop-filter: blur(0%);
+  }
 }
 
 /* resetting the default padding and margins that web browsers have inherently  */
 
 * {
-    padding: 0px;
-    margin: 0px;
+  padding: 0px;
+  margin: 0px;
 }
 
 /* setting the background image to the gradient mesh svg  */
 
 body {
-    background-image: url(../images/backgroung-gradient.smsvg.svg);
-    backdrop-filter:hue-rotate(0);
-    background-size:cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    animation-name: slightMovement;
-    animation-play-state:running;
-    animation-iteration-count: infinite;
-    animation-duration:300s;
+  background-image: url(../images/backgroung-gradient.smsvg.svg);
+  backdrop-filter: hue-rotate(0);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  animation-name: slightMovement;
+  animation-play-state: running;
+  animation-iteration-count: infinite;
+  animation-duration: 300s;
 }
 
 /* Stylization for the closed side navigation begins. */
 
 #side-nav-container.nav-closed {
-    width:75px;
-    height:100vh;
-    display: flex;
-    justify-content:space-between;
-    gap: 10px;
-    flex-flow: column nowrap;
-    align-content: center;
-    position:fixed;
-    background-color: var(--transparentQuaternaryColor);
-    transition: var(--transitionSettings);
+  width: 75px;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-flow: column nowrap;
+  align-content: center;
+  position: fixed;
+  background-color: var(--transparentQuaternaryColor);
+  transition: var(--transitionSettings);
 }
 
 #side-nav-container.nav-closed > header {
-    width:100%;
-    padding-top:20px;
+  width: 100%;
+  padding-top: 20px;
 }
 
 #side-nav-container.nav-closed > header > img {
-    width:35px;
-    margin-left:20px;
-    filter: drop-shadow(4px 4px 1px var(--secondaryColor));
-    cursor: pointer;
+  width: 35px;
+  margin-left: 20px;
+  filter: drop-shadow(4px 4px 1px var(--secondaryColor));
+  cursor: pointer;
 }
 
 #side-nav-container.nav-closed > header > h1,
 #side-nav-container.nav-closed > header > h2 {
-    display: none;
+  display: none;
 }
 
 #side-nav-container.nav-closed > nav {
-    width: 100%;
-    overflow: hidden;
+  width: 100%;
+  overflow: hidden;
 }
 
 #side-nav-container.nav-closed > nav > ul > li > a {
-    color:var(--primaryColor);
+  color: var(--primaryColor);
 }
 
 #side-nav-container.nav-closed > nav > ul > li > a > span {
-    display: none;
+  display: none;
 }
 
 #side-nav-container.nav-closed > nav > ul > li > a > img {
-    width:55px;
-    padding:10px 10px 10px 10px;
-    transition: var(--transitionSettings);
+  width: 55px;
+  padding: 10px 10px 10px 10px;
+  transition: var(--transitionSettings);
 }
 
 #side-nav-container.nav-closed > nav > ul > li > a > img:hover {
-    transition: var(--transitionSettings);
-    background-color: var(--transparentQuaternaryColor);
-    filter:invert(1);
+  transition: var(--transitionSettings);
+  background-color: var(--transparentQuaternaryColor);
+  filter: invert(1);
 }
 
 #side-nav-container.nav-closed > footer {
-    display: block;
+  display: block;
 }
 
 #side-nav-container.nav-closed > footer > hr {
-    display: block;
-    border:none;
-    height:1px;
-    background-color:var(--secondaryColor);
+  display: block;
+  border: none;
+  height: 1px;
+  background-color: var(--secondaryColor);
 }
 
 #side-nav-container.nav-closed > footer > img {
-    display: block;
-    width:35px;
-    padding: 20px;
-    transition: var(--transitionSettings);
+  display: block;
+  width: 35px;
+  padding: 20px;
+  transition: var(--transitionSettings);
 }
 
 #side-nav-container.nav-closed > footer > img:hover {
-    transition: var(--transitionSettings);
-    background-color:var(--transparentQuaternaryColor);
-    filter:invert(1);
+  transition: var(--transitionSettings);
+  background-color: var(--transparentQuaternaryColor);
+  filter: invert(1);
 }
 
 #side-nav-container.nav-closed > footer > p {
-    display: none;
+  display: none;
 }
 
 main.nav-closed {
-    width:calc(100% - 75px);
-    margin-left: 75px;
+  width: calc(100% - 75px);
+  margin-left: 75px;
 }
-
 
 /* stylization for the closed side navigation ends. */
 
 /* Stylization for the open side navigation begins */
 
 #side-nav-container.nav-open {
-    width:300px;
-    background-color:var(--transparentQuaternaryColor);
-    height:100vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-flow: column nowrap;
-    position: fixed;
-    overflow: hidden;
-    transition: var(--transitionSettings);
+  width: 300px;
+  background-color: var(--transparentQuaternaryColor);
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: column nowrap;
+  position: fixed;
+  overflow: hidden;
+  transition: var(--transitionSettings);
 }
 
 #side-nav-container.nav-open > header {
-    flex: 0 1 35%;
-    width:100%;
-    height:35vh;
-    padding:50px 0px 0px 0px;
+  flex: 0 1 35%;
+  width: 100%;
+  height: 35vh;
+  padding: 50px 0px 0px 0px;
 }
 
 #side-nav-container.nav-open > header > img {
-    width: 75px;
-    height: auto;
-    display: block;
-    margin: 0px auto;
-    padding-bottom:15px;
+  width: 75px;
+  height: auto;
+  display: block;
+  margin: 0px auto;
+  padding-bottom: 15px;
 }
 
 #side-nav-container.nav-open > header > h1,
 #side-nav-container.nav-open > header > h2 {
-    color: var(--primaryColor);
-    width:100%;
-    height:25px;
-    font-size: 25px;
-    text-transform: uppercase;
-    text-align: center;
-    font:var(--headerStyleBold);
-    padding:0px 0px 15px;
+  color: var(--primaryColor);
+  width: 100%;
+  height: 25px;
+  font-size: 25px;
+  text-transform: uppercase;
+  text-align: center;
+  font: var(--headerStyleBold);
+  padding: 0px 0px 15px;
 }
 
-
 #side-nav-container.nav-open > nav {
-    flex: 0 0 40%;
-    width:100%;
-    height:100%;
-    padding:0px 0px;
+  flex: 0 0 40%;
+  width: 100%;
+  height: 100%;
+  padding: 0px 0px;
 }
 
 #side-nav-container.nav-open > nav > ul {
-    width:100%;
-    text-decoration: none;
-    height:100%;
-    list-style-type: none;
-    color: var(--primaryColor);
-    font-family: monospace;
-    text-transform: uppercase;
-    font-weight:500;
-    font:var(--navSelectorStyle);
-    padding:0px 0px;
+  width: 100%;
+  text-decoration: none;
+  height: 100%;
+  list-style-type: none;
+  color: var(--primaryColor);
+  font-family: monospace;
+  text-transform: uppercase;
+  font-weight: 500;
+  font: var(--navSelectorStyle);
+  padding: 0px 0px;
 }
 
 #side-nav-container.nav-open > nav > ul > li {
-    list-style-type: none;
-    display: block;
-    width:100%;
-    float: left;
-    text-align: center;
-    padding:0px 0px;
-    transition: var(--transitionSettings);
-    cursor: pointer;
-    letter-spacing: .2em;
+  list-style-type: none;
+  display: block;
+  width: 100%;
+  float: left;
+  text-align: center;
+  padding: 0px 0px;
+  transition: var(--transitionSettings);
+  cursor: pointer;
+  letter-spacing: 0.2em;
 }
 
 #side-nav-container.nav-open > nav > ul > li > a {
-    color: var(--primaryColor);
-    text-decoration: none;
-    padding: 20px 0px;
-    width:100%;
-    display: block;
+  color: var(--primaryColor);
+  text-decoration: none;
+  padding: 20px 0px;
+  width: 100%;
+  display: block;
 }
 
 #side-nav-container.nav-open > nav > ul > li > a:hover {
-    color:var(--quaternaryColor);
+  color: var(--quaternaryColor);
 }
 
 #side-nav-container.nav-open > nav > ul > li > a > img {
-    display: none;
+  display: none;
 }
 
 #side-nav-container.nav-open > nav > ul > li:hover {
-    background-color: var(--transparentPrimaryColor);
-    color: var(--quaternaryColor);
-    transition:var(--transitionSettings);
+  background-color: var(--transparentPrimaryColor);
+  color: var(--quaternaryColor);
+  transition: var(--transitionSettings);
 }
 
 #side-nav-container.nav-open > footer {
-    flex: 0 0 0px;
-    height:100%;
-    width:100%;
-    text-align: center;
-    padding-bottom: 25px;
-
+  flex: 0 0 0px;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 25px;
 }
 
 #side-nav-container.nav-open > footer > hr {
-    width:90%;
-    border:solid 1px var(--quaternaryColor);
-    margin: 0px 5% 25px 5%; 
+  width: 90%;
+  border: solid 1px var(--quaternaryColor);
+  margin: 0px 5% 25px 5%;
 }
 
 #side-nav-container.nav-open > footer > img {
-    width:35px;
+  width: 35px;
 }
 
 #side-nav-container.nav-open > footer > p {
-    font:var(--navSelectorStyle)
+  font: var(--navSelectorStyle);
 }
 
 main.nav-open {
-    width:calc(100% - 300px);
-    transition: var(--transitionSettings);
+  width: calc(100% - 300px);
+  transition: var(--transitionSettings);
 }
 
 /* Stylization for the open side navigation bar ends  */
 
-
-
 /* Stylization for the main section of content begins  */
 
 main {
-    height:100vh;
-    margin-left:300px;
-    display:flex;
-    justify-content: center;
-    flex-flow: row nowrap;
-    overflow: hidden;
-    transition: var(--transitionSettings);
+  height: 100vh;
+  margin-left: 300px;
+  display: flex;
+  justify-content: center;
+  flex-flow: row nowrap;
+  overflow: hidden;
+  transition: var(--transitionSettings);
 }
 
 main > #display {
-    width:80%;
-    height:80vh;
-    margin:10vh auto;
-    border-radius: 5px;
+  width: 80%;
+  height: 80vh;
+  margin: 10vh auto;
+  border-radius: 5px;
 }
 
 /* Stylization of the home screen begins  */
 
 main > #display.home {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content:space-between;
-    align-items: center;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
 }
 
 main > #display.home > header {
-    width:100%;
-    padding-bottom:0px;
+  width: 100%;
+  padding-bottom: 0px;
 }
 
 main > #display.home > header > img {
-    width:85%;
-    padding:0px 7.5%;
-    display: block;
-    /* background-color: var(--transparentQuaternaryColor); */
-    filter: drop-shadow(8px 8px 2px var(--transparentPrimaryColor));
-    border-radius: 15px 15px 0px 0px;
+  width: 85%;
+  padding: 0px 7.5%;
+  display: block;
+  /* background-color: var(--transparentQuaternaryColor); */
+  filter: drop-shadow(8px 8px 2px var(--transparentPrimaryColor));
+  border-radius: 15px 15px 0px 0px;
 }
 
 main > #display.home > a > .home-screen-button {
-    border-radius: 1em;
-    font-family: "open sans condensed", sans-serif;
-    font-weight: 700;
-    font-size: 3vh;
-    text-transform: uppercase;
-    padding-top:2vh;
-    padding-bottom:2vh;
-    margin:0px auto;
-    padding:2vh 30px;
-    cursor: pointer;
-    background-color: var(--transparentQuaternaryColor);
-    transition:var(--transitionSettings);
-    border:4px solid var(--primaryColor);
-    box-shadow: inset 0px 0px 15px 5px var(--tertiaryColor);
+  border-radius: 1em;
+  font-family: "open sans condensed", sans-serif;
+  font-weight: 700;
+  font-size: 3vh;
+  text-transform: uppercase;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  margin: 0px auto;
+  padding: 2vh 30px;
+  cursor: pointer;
+  background-color: var(--transparentQuaternaryColor);
+  transition: var(--transitionSettings);
+  border: 4px solid var(--primaryColor);
+  box-shadow: inset 0px 0px 15px 5px var(--tertiaryColor);
 }
 
 main > #display.home > a > .home-screen-button:hover {
-    background-color: var(--primaryColor);
-    color:var(--quaternaryColor);
-    border:4px solid var(--quaternaryColor);
-    box-shadow: inset 0px 0px 15px 5px black;
+  background-color: var(--primaryColor);
+  color: var(--quaternaryColor);
+  border: 4px solid var(--quaternaryColor);
+  box-shadow: inset 0px 0px 15px 5px black;
 }
 
 /* Stylization for the home screen ends  */
 
-
 /* stylization of the quiz screen begins. */
 
 main > #display.quiz {
-    background-color: var(--transparentQuaternaryColor);
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-between;
-    align-items: center;
+  background-color: var(--transparentQuaternaryColor);
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
 }
 
 main > #display.quiz > textarea {
-    appearance: none;
-    resize: none;
-    width:80%;
-    height:35%;
-    margin:5% 5% 0px 5%;
-    font:400 14pt/22pt "Lato";
-    text-align: center;
-    padding:5%;
-    background-color:rgb(0, 0, 0, .1);
-    border:none;
-    color:var(--primaryColor);
+  appearance: none;
+  resize: none;
+  width: 80%;
+  height: 35%;
+  margin: 5% 5% 0px 5%;
+  font: 400 14pt/22pt "Lato";
+  text-align: center;
+  padding: 5%;
+  background-color: rgb(0, 0, 0, 0.1);
+  border: none;
+  color: var(--primaryColor);
 }
 
 main > #display.quiz > p {
-    width:100%;
-    padding: 1% 0px;
-    background-color: var(--primaryColor);
-    color: var(--quaternaryColor);
-    font: var(--bodyCopyStyle);
-    text-align: center;
-    margin:2.5% 0px;
+  width: 100%;
+  padding: 1% 0px;
+  background-color: var(--primaryColor);
+  color: var(--quaternaryColor);
+  font: var(--bodyCopyStyle);
+  text-align: center;
+  margin: 2.5% 0px;
 }
 
 main > #display.quiz > #answer-choices {
-    display: flex;
-    width:90%;
-    margin-bottom:5%;
-    height:calc(35% - 10px);
-    justify-content:space-evenly;
-    flex-flow: row wrap;
-    gap:5px 5px;
+  display: flex;
+  width: 90%;
+  margin-bottom: 5%;
+  height: calc(35% - 10px);
+  justify-content: space-evenly;
+  flex-flow: row wrap;
+  gap: 5px 5px;
 }
 
 main > #display.quiz > #answer-choices button {
-    flex: 0 0 49%;
-    text-align: center;
-    background-color: rgb(0, 0, 0, 0);
-    font:var(--headerStyleBold);
-    border-radius: 2.5px;
+  flex: 0 0 49%;
+  text-align: center;
+  background-color: rgb(0, 0, 0, 0);
+  font: var(--headerStyleBold);
+  border-radius: 2.5px;
 }
 
 main > #display.quiz > #answer-choices button#submit {
-    margin-left: 25%;
-    margin-right:25%;
+  margin-left: 25%;
+  margin-right: 25%;
 }
 
 main > #display.quiz > #answer-choices button.selected {
-    background-color: var(--primaryColor);
-    color:var(--quaternaryColor);
-    box-shadow: inset 0px 0px 3px var(--quaternaryColor);
+  background-color: var(--primaryColor);
+  color: var(--quaternaryColor);
+  box-shadow: inset 0px 0px 3px var(--quaternaryColor);
 }
 
 #answer-choices.true-false > [data-variant="multiple-choice"] {
-    display: none;
+  display: none;
 }
 
 #answer-choices.multiple-choice > [data-variant="true-false"] {
-    display: none;
+  display: none;
 }
 
 #popup {
-    position: fixed;
-    display: flex;
-    margin-top: 10vh;
-    height:75vh;
-    background-color: var(--primaryColor);
-    flex-flow:column nowrap;
-    border-radius: 10px;
-    justify-content: space-evenly;
-    padding: 2.5vh 2.5%;
-    align-items:center;
-    color: var(--quaternaryColor);
+  position: fixed;
+  display: flex;
+  margin-top: 10vh;
+  height: 75vh;
+  background-color: var(--primaryColor);
+  flex-flow: column nowrap;
+  border-radius: 10px;
+  justify-content: space-evenly;
+  padding: 2.5vh 2.5%;
+  align-items: center;
+  color: var(--quaternaryColor);
 }
 
 #popup p {
-    display: block;
-    width:100%;
-    font: var(--bodyCopyStyle);
-    text-align: center;
+  display: block;
+  width: 100%;
+  font: var(--bodyCopyStyle);
+  text-align: center;
 }
 
 #popup h6 {
-    font: var(--headerStyleBold);
-    color: var(--quaternaryColor);
-    width:90%;
-    padding:0px 5%;
-    text-align: center;
+  font: var(--headerStyleBold);
+  color: var(--quaternaryColor);
+  width: 90%;
+  padding: 0px 5%;
+  text-align: center;
 }
 
 #popup button {
-    padding:15px 30px;
-    font:var(--headerStyleBold);
-    border-radius: 15px;
-    text-transform: uppercase;
-    letter-spacing: .1em;
-    color: var(--quaternaryColor);
-    background-color: var(--primaryColor);
-    border: var(--quaternaryColor) 2px solid;
-    transition: var(--transitionSettings);
+  padding: 15px 30px;
+  font: var(--headerStyleBold);
+  border-radius: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--quaternaryColor);
+  background-color: var(--primaryColor);
+  border: var(--quaternaryColor) 2px solid;
+  transition: var(--transitionSettings);
 }
 
 #popup input {
-    padding:15px 30px;
-    font: var(--bodyCopyStyle);
-    color: var(--quaternaryColor);
-    background-color: var(--primaryColor);
-    text-transform: uppercase;
-    border: var(--quaternaryColor) 2px solid;
-    text-align: center;
+  padding: 15px 30px;
+  font: var(--bodyCopyStyle);
+  color: var(--quaternaryColor);
+  background-color: var(--primaryColor);
+  text-transform: uppercase;
+  border: var(--quaternaryColor) 2px solid;
+  text-align: center;
 }
 
 #popup button:hover {
-    color: var(--primaryColor);
-    background-color: var(--quaternaryColor);
-    transition: var(--transitionSettings);
+  color: var(--primaryColor);
+  background-color: var(--quaternaryColor);
+  transition: var(--transitionSettings);
 }
 
 #popup.nav-closed {
-    display: none;
+  display: none;
 }
 
 #popup.nav-closed.shown {
-    display: flex;
-    width:calc(77% - 75px);
-    margin-left: calc(9% + 75px);
-    transition: var(--transitionSettings);
+  display: flex;
+  width: calc(77% - 75px);
+  margin-left: calc(9% + 75px);
+  transition: var(--transitionSettings);
 }
 
 #popup.nav-open.shown {
-    width:calc(85% - 300px);
-    margin-left:calc(5% + 300px);
+  width: calc(85% - 300px);
+  margin-left: calc(5% + 300px);
 }
 
 /* stylization of the quiz screen ends. */
 
+#display.highscores {
+  background-color: var(--transparentQuaternaryColor);
+  border-radius: 15px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  overflow-y: scroll;
+  gap: 22px;
+}
+
+#display.highscores h6 {
+  width: 100%;
+  text-align: center;
+  font: var(--headerStyleBold);
+  background-color: var(--transparentQuaternaryColor);
+}
+
+#leaderboard {
+  width: 100%;
+  padding: 10px 0px;
+  border-top: var(--primaryColor) 2px solid;
+  font: var(--bodyCopyStyle);
+}
+
+#leaderboard li {
+  border-top: var(--bodyCopyStyle) 2px solid;
+  font: var(--headerStyleLight);
+  width: 100%;
+  text-align: center;
+}
