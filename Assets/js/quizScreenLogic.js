@@ -28,6 +28,7 @@ let displayTimeRemaining = document.querySelector(`[data-tracker="time-value"]`)
 let $popupScreen = document.getElementById(`popup`);
 let $popupButton = document.getElementById(`popup-button`);
 
+let highScores = [];
 // Shows the screen before the quiz begins, gives information about the quiz, then it is removed when it is time for the quiz to begin.
 function beginExam() {
     $popupScreen.classList.remove(`shown`);
@@ -44,22 +45,24 @@ function endExam() {
     Please provide your name below to save your score to the records!
     </p>
     <input type="text" id="player-name" placeholder="Your Name">
-    <a href="./highscores.html"><button id="save-info-button">Submit!</button></a>`;
+    <button id="save-info-button">Submit!</button>`;
+    let saveInfoButton = document.getElementById(`save-info-button`);
+    let playerName = document.getElementById(`player-name`);
+    let newScore = {score: scoreTracker, newUser: playerName};
+    console.log(saveInfoButton);
+    saveInfoButton.addEventListener(`click`, function(){
+        let leaderBoard = localStorage.getItem(`highScores`)
+
+        if(leaderBoard == null) {
+            leaderBoard = [];
+        } 
+        leaderBoard.push(newScore);
+        leaderBoard.sort((x, y) => (x.score > y.score));
+        localStorage.setItem(`highScores`, leaderBoard);
+        console.log(newScore);
+        console.log(leaderBoard);
+    });
 }
-
-// function startTimer(){
-//     setTimeout(() => {
-//         console.log(`testing`);
-//         endExam();
-//     }, timeGiven);
-// };
-
-$popupButton.addEventListener(`click`, function () {
-    timerForQuiz();
-    beginExam();
-    randomQuestion();
-    questionInformationPopulate(questionBeingAsked);
-});
 
 const q1 = {
     question: `what is 2 + 2`,
@@ -124,8 +127,6 @@ function questionInformationPopulate(x) {
     $optionFalse.setAttribute(`data-key`, x.choice2[1]);
   }
 }
-addEventListener
-
 let lastButton = ``;
 
 function makeSelection(selectedOption) {
@@ -173,7 +174,7 @@ function checkAnswer() {
         timeRemaining -= 10;
         randomQuestion();
         questionInformationPopulate(questionBeingAsked);
-        answerColorCorrect();
+        answerColorIncorrect();
     };
 };
 
@@ -184,18 +185,19 @@ function timerForQuiz() {
     if(timeRemaining > 0) {
         timeRemaining--;
         displayTimeRemaining.textContent = timeRemaining;
-        console.log(timeRemaining);
     } else {
         clearInterval(countdown);
         endExam()
         return;
-    }}, 100);
+    }}, 10);
 };
 
-// setInterval(myMethod, 5000);
-// function myMethod( )
-// {
-// }
+$popupButton.addEventListener(`click`, function () {
+    timerForQuiz();
+    beginExam();
+    randomQuestion();
+    questionInformationPopulate(questionBeingAsked);
+});
 
 $submitButton.addEventListener(`click`, function () {
     checkAnswer();
