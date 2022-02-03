@@ -413,6 +413,10 @@ main > #display.quiz > #answer-choices button.selected {
   display: none;
 }
 
+/* stylization for the quiz screen ends  */
+
+/* stylization for the popup screen begins  */
+
 #popup {
   position: fixed;
   display: flex;
@@ -486,7 +490,9 @@ main > #display.quiz > #answer-choices button.selected {
   margin-left: calc(5% + 300px);
 }
 
-/* stylization of the quiz screen ends. */
+/* stylization of the popup screen ends. */
+
+/* stylization of the highscores screen begins  */
 
 #display.highscores {
   background-color: var(--transparentQuaternaryColor);
@@ -494,7 +500,6 @@ main > #display.quiz > #answer-choices button.selected {
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
-  overflow-y: scroll;
   gap: 22px;
 }
 
@@ -510,6 +515,7 @@ main > #display.quiz > #answer-choices button.selected {
   padding: 10px 0px;
   border-top: var(--primaryColor) 2px solid;
   font: var(--bodyCopyStyle);
+  overflow-y: scroll;
 }
 
 #leaderboard li {
@@ -518,3 +524,5 @@ main > #display.quiz > #answer-choices button.selected {
   width: 100%;
   text-align: center;
 }
+
+/* stylization of the highscores screen ends  */

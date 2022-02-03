@@ -61,46 +61,13 @@ function endExam() {
     });
 }
 
-const q1 = {
-    question: `what is 2 + 2`,
-    choice1: [`4`, true],
-    choice2: [`3`, false],
-    choice3: [`16`, false],
-    choice4: [`12`, false],
-    type: `MC`,
-};
-
-const q2 = {
-    question: `Did Adam Cleland Make this page?`,
-    choice1: [`True`, true],
-    choice2: [`False`, false],
-    type: `TF`,
-};
-
-const q3 = {
-    question: `What is the correct tag to store all the main content in an HTML page?`,
-    choice1: [`<main>`, true],
-    choice2: [`<div id="wrapper"`, false],
-    choice3: [`<body>`, false],
-    choice4: [`All of the above`, false],
-    type: `MC`,
-};
-
-const q4 = {
-    question: `Is Natural Light the greatest beer brand?`,
-    choice1: [`True`, true],
-    choice2: [`False`, false],
-    type: `TF`,
-};
-
-const questionArray = [q1, q2, q3, q4];
-
+// chooses one of the index's of the array at random with 0 being inclusive
 function randomQuestion() {
     let index = Math.floor(Math.random() * questionArray.length);
         questionBeingAsked = questionArray[index];
         return questionBeingAsked;
 }
-
+// fills out the information chosen by the random question output 
 function questionInformationPopulate(x) {
   if (x.type === `MC`) {
     $answerChoices.classList.remove(`true-false`);
@@ -125,7 +92,7 @@ function questionInformationPopulate(x) {
   }
 }
 let lastButton = ``;
-
+// sets the selected style for the choices
 function makeSelection(selectedOption) {
   let target = selectedOption.target;
   if (target == $submitButton && lastButton !== ``) {
@@ -135,28 +102,29 @@ function makeSelection(selectedOption) {
     lastButton.classList.remove(`selected`);
   }
   lastButton = target;
-  // $multipleChoiceAnswer.classList.remove('selected');
   target.classList.toggle(`selected`);
 }
 
+
+// defaults the screen back to its original css after .2 seconds
 function originalColor() {
     setTimeout(() => {
         $textDisplay.style.backgroundColor = `rgb(0, 0, 0, .1)`;
     }, 200);
 }
-
+// flashes the screen green if answer came back as true 
 function answerColorCorrect() {
     $textDisplay.style.backgroundColor = `green`;
     originalColor();
 }
-
+// flashes the screen red if answer cam back as false
 function answerColorIncorrect() {
     $textDisplay.style.backgroundColor = `red`;
     originalColor();
 }
 
 let scoreTracker = 0;
-
+// checks the answer in which you have chosen 
 function checkAnswer() {
     let answerChoice = document.querySelector(`.selected`);
     if (answerChoice == null) {
@@ -176,7 +144,7 @@ function checkAnswer() {
 };
 
 let timeRemaining = 120;
-
+// uses timeRemaining variable as the time allotted for the quiz then removes one every second
 function timerForQuiz() {
     countdown = setInterval(() => {
     if(timeRemaining > 0) {
@@ -188,18 +156,18 @@ function timerForQuiz() {
         return;
     }}, 1000);
 };
-
+// starts the quiz
 $popupButton.addEventListener(`click`, function () {
     timerForQuiz();
     beginExam();
     randomQuestion();
     questionInformationPopulate(questionBeingAsked);
 });
-
+// checks your answer on submit
 $submitButton.addEventListener(`click`, function () {
     checkAnswer();
     randomQuestion();
     questionInformationPopulate(questionBeingAsked);
 });
-
+// changes the way that the selected option looks on the screen
 $answerChoices.addEventListener(`click`, makeSelection);
